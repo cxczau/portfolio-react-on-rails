@@ -2,29 +2,36 @@ import React, { useReducer, useEffect } from 'react';
 
 import Post from "./Post";
 import PostsChannel from "./PostsChannel";
+import ConnectionState from "./ConnectionState";
 
 const POST_RECEIVED = "POST_RECEIVED";
 const FETCH_POSTS_SUCCESSED = "FETCH_POSTS_SUCCESSED";
+const CONNECTION_STATE_CHANGED = "CONNECTION_STATE_CHANGED";
 
 function reducer(state, action) {
-  switch(action.type) {
+  switch (action.type) {
     case POST_RECEIVED:
       return {
         ...state,
         posts: [...state.posts, action.payload],
       }
-      case FETCH_POSTS_SUCCESSED:
-        return {
-          ...state,
-          posts: action.payload,
-        }
+    case FETCH_POSTS_SUCCESSED:
+      return {
+        ...state,
+        posts: action.payload,
+      }
+    case CONNECTION_STATE_CHANGED:
+      return {
+        ...state,
+        connected: action.payload,
+      }
     default:
       throw new Error(`${action.type} not defined in reducer`);
   }
 }
 
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, { posts: [] });
+  const [state, dispatch] = useReducer(reducer, { posts: [], connected: false });
 
   const fetchPosts = () => {
     Rails.ajax({
@@ -40,7 +47,7 @@ const App = () => {
   }
 
   const connectionStateChanged = (isConnected) => {
-    console.log('connectionStateChanged', isConnected);
+    dispatch({ type: CONNECTION_STATE_CHANGED, payload: isConnected });
   }
 
   useEffect(() => {
@@ -49,6 +56,7 @@ const App = () => {
 
   return (
     <div className="row m-2">
+      <ConnectionState connected={state.connected} />
       <PostsChannel
         connectionStateChanged={connectionStateChanged}
         postReceived={postReceived}
