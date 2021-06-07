@@ -7,11 +7,11 @@ function formatDateTime(unixTimestamp) {
 const Post = ({ body, createdAt, title }) => {
   return (
     <div className="card">
-      <div class="card-body">
-        <h5 class="card-title">{title}</h5>
-        <p class="card-text">{body}</p>
+      <div className="card-body">
+        <h5 className="card-title">{title}</h5>
+        <p className="card-text">{body}</p>
       </div>
-      <div class="card-footer text-muted">
+      <div className="card-footer text-muted">
         {formatDateTime(createdAt)}
       </div>
     </div>

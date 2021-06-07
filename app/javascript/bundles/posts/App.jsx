@@ -21,7 +21,7 @@ const App = () => {
   return (
     <div className="row m-2">
       {posts.map((post) => (
-        <div className="col-4">
+        <div className="col-4" key={post.id}>
           <Post key={post.id} {...post} />
         </div>
       ))}
