@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootstrap', '~> 5.0.1'
 gem 'simple_form', '~> 5.1.0'
 gem 'haml'
+gem "font-awesome-rails"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
