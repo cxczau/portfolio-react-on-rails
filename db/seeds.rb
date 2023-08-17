@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+[
+  { name: 'vanilla' },
+  { name: 'lime' },
+  { name: 'lemon' },
+  { name: 'chocolate' }
+].each do |attributes|
+  Ingredient.create(attributes)
+end

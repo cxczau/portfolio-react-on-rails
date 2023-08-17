@@ -1,0 +1,18 @@
+<div>
+  <table>
+    <tr>
+      <td width="150"><b>Id</b></td>
+      <td width="200"><b>Name</b></td>
+      <td width="200"><b>Selected?</b></td>
+      <td width="200"><b>Delete</b></td>
+    </tr>
+    <%= @ingredients.map do |ingredient| %>
+      <tr>
+        <td><%= ingredient.id %></td>
+        <td><%= ingredient.name %></td>
+        <td><%= check_box_tag "ingredient_ids[]", ingredient.id, @selected_ingredient.id == ingredient.id, class: "ingredient-checkbox" %></td>
+        <td><%= link_to "Delete", ingredient_path(ingredient.id), method: :delete, data: { confirm: "Deleting #{ingredient.name}. Are you sure?" } %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

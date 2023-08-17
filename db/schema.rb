@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_07_062114) do
+ActiveRecord::Schema.define(version: 2023_08_17_034824) do
+
+  create_table "ingredients", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.text "description"
+    t.string "color"
+    t.string "image"
+    t.index ["name"], name: "index_ingredients_on_name", unique: true
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "title", null: false
