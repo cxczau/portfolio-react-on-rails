@@ -1,0 +1,28 @@
+inherit_from:
+  - https://raw.githubusercontent.com/Sentia/rubocop/v2/.rubocop-sentia.yml
+  - .rubocop_todo.yml
+
+inherit_mode:
+  merge:
+    - Exclude
+
+require:
+  - rubocop-rails
+  - rubocop-performance
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    # - app/admin/**/*
+    # - app/channels/**/*
+    # - app/jobs/**/*
+    - bin/**/*
+    - config/**/*
+    - db/migrate/**/*
+    - db/schema.rb
+    # - script/**/*
+    - node_modules/**/*
+    # - Gemfile
+    - Rakefile
+    # - config.ru

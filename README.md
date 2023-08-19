@@ -13,9 +13,17 @@ $ open http://localhost:3000/
 
 
 ## TODO
+- flash messages
+- error messages
+- 
+- swagger api-docs
 - cooking temps and measurements, conversions
 - synergies for ingredients
 - common chess moves and openings
 - mahjong single player
 - drinking tracker
-- use environment variables
+
+## DONE
+- dotenv integration (i.e. environment variables)
+- fa-icons integration
+- rapid-api integration

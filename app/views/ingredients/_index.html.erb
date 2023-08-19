@@ -11,7 +11,7 @@
         <td><%= ingredient.id %></td>
         <td><%= ingredient.name %></td>
         <td><%= check_box_tag "ingredient_ids[]", ingredient.id, @selected_ingredient.id == ingredient.id, class: "ingredient-checkbox" %></td>
-        <td><%= link_to (fa_icon "trash"), ingredient_path(ingredient), method: :delete, data: { confirm: "Deleting #{ingredient.name}. Are you sure?" } %></td>
+        <td><%= button_to ingredient_path(ingredient.id), method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}} do %><%= fa_icon "trash" %><% end %></td>
       </tr>
     <% end %>
   </table>
