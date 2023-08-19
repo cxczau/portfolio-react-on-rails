@@ -11,5 +11,18 @@
   { name: 'lemon' },
   { name: 'chocolate' }
 ].each do |attributes|
-  Ingredient.create(attributes)
+  Ingredient.find_or_create_by(attributes)
+end
+
+[
+  { name: 'vanilla', combinable: ['lemon'] },
+  { name: 'lime', combinable: ['lemon'] },
+  { name: 'lemon', combinable: [] },
+  { name: 'chocolate', combinable: ['vanilla'] }
+].each do |attributes|
+  first = Ingredient.find_by(name: attributes[:name])
+  attributes[:combinable].each do |name|
+    second = Ingredient.find_by(name: name)
+    Combination.create(first_ingredient: first, second_ingredient: second)
+  end
 end

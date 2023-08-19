@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-require 'pry'
+require 'uri'
+require 'net/http'
 
 class IngredientsController < ApplicationController
   before_action :load_model, only: %i[update destroy]
@@ -17,6 +18,20 @@ class IngredientsController < ApplicationController
   def index
     @ingredients = Ingredient.all
     @selected_ingredient = Ingredient.first
+
+    if false
+      url = URI("https://tasty.p.rapidapi.com/recipes/auto-complete?prefix=chicken%20soup")
+
+      http = Net::HTTP.new(url.host, url.port)
+      http.use_ssl = true
+
+      request = Net::HTTP::Get.new(url)
+      request["X-RapidAPI-Key"] = ENV['RAPID_API_KEY']
+      request["X-RapidAPI-Host"] = 'tasty.p.rapidapi.com'
+
+      response = http.request(request)
+      puts response.read_body
+    end
   end
 
   def create

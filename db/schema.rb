@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_17_034824) do
+ActiveRecord::Schema.define(version: 2023_08_17_090331) do
+
+  create_table "combinations", force: :cascade do |t|
+    t.integer "first_ingredient_id"
+    t.integer "second_ingredient_id"
+    t.integer "positive_rating", default: 0
+    t.integer "negative_rating", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "ingredients", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
