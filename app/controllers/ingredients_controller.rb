@@ -38,10 +38,10 @@ class IngredientsController < ApplicationController
     ingredient = Ingredient.new(ingredient_params)
     if ingredient.save
       flash[:notice] = 'Ingredient created!'
-      redirect_to ingredients_path
     else
       flash[:alert] = "Ingredient error! #{ingredient.errors.full_messages.to_sentence}"
     end
+    redirect_to ingredients_path
   end
 
   def update

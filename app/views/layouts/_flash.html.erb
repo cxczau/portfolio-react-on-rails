@@ -1,6 +1,6 @@
 <div class="bg-outline">
   <% flash.each do |type, msg| %>
-    <div>
+    <div class="flash-<%= type %>">
       <%= msg %>
     </div>
   <% end %>

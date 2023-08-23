@@ -1,6 +1,6 @@
 class Ingredient < ApplicationRecord
   before_validation :prevalidate
-  validates :name, uniqueness: { case_sensitive: false }
+  validates :name, uniqueness: { case_sensitive: false }, presence: true
 
   has_many :combinations, dependent: :destroy, foreign_key: :first_ingredient_id
   has_many :mixes, through: :combinations, source: :second_ingredient
