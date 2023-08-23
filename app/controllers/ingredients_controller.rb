@@ -37,7 +37,7 @@ class IngredientsController < ApplicationController
   def create
     ingredient = Ingredient.new(ingredient_params)
     if ingredient.save
-      flash[:notice] = 'Ingredient created!'
+      flash[:success] = 'Ingredient created!'
     else
       flash[:alert] = "Ingredient error! #{ingredient.errors.full_messages.to_sentence}"
     end
