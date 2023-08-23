@@ -118,6 +118,7 @@ GEM
     nokogiri (1.11.7)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
+    pg (1.5.3)
     popper_js (2.9.2)
     pry (0.14.2)
       coderay (~> 1.1)
@@ -190,7 +191,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     temple (0.10.2)
     thor (1.1.0)
     thread_safe (0.3.6)
@@ -234,6 +234,7 @@ DEPENDENCIES
   haml
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  pg (>= 0.18, < 2.0)
   pry
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.7)
@@ -242,7 +243,6 @@ DEPENDENCIES
   simple_form (~> 5.1.0)
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3 (~> 1.4)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
