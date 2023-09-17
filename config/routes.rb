@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :posts, only: [ :index, :create ]
+  resources :health, only: [ :index ]
   resources :portfolio, only: [ :index ]
+  resources :posts, only: [ :index, :create ]
   resources :synergies, only: [ :index ]
   root to: 'posts#index'
 
