@@ -6,16 +6,16 @@ import dayjs from 'dayjs';
 const OverviewPage = () => {
   const SURVEYS = [
     {
-      id: 'A',
+      id: 'a',
       name: 'Survey Type A',
       description: 'A short weekly survey to see how you are doing',
       lastCompletedAt: dayjs().subtract(1, 'day').format('DD/MM/YYYY'),
       wellbeingResult: 39,
       wellbeingColor: 'red',
-      wellbeingCategory: 'Stumbling',
+      wellbeingCategory: 'Low',
     },
     {
-      id: 'B',
+      id: 'b',
       name: 'Survey Type B',
       description: 'A medium length survey to see how you are doing',
       lastCompletedAt: dayjs().subtract(1, 'week').format('DD/MM/YYYY'),
@@ -24,7 +24,7 @@ const OverviewPage = () => {
       wellbeingCategory: 'Thriving',
     },
     {
-      id: 'C',
+      id: 'c',
       name: 'Survey Type C',
       description: 'A comprehensive survey to see how you are doing',
       lastCompletedAt: dayjs().subtract(3, 'day').format('DD/MM/YYYY'),
